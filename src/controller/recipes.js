@@ -58,12 +58,10 @@ export const getRandomRecipe = async (req, res) => {
 };
 
 // FILTER BY INGREDIENT
-export const getAllRecipesWithIngredient = async (req, res) => {
-  const ingredient = req.params.ingredient;
-
+export const getRecipesByIngredient = async (req, res) => {
+  const ingredient = req.params.name;
   const recipes = await RecipeModel.find({
     ingredients: { $regex: ingredient, $options: "i" }
   });
-
-  return res.json({ recipes: recipes });
+  return res.json({ recipes });
 };

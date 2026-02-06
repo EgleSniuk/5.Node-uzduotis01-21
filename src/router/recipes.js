@@ -6,17 +6,18 @@ import {
   updateRecipe,
   deleteRecipe,
   getRandomRecipe,
-  getAllRecipesWithIngredient
+  getRecipesByIngredient
 } from "../controller/recipes.js";
 
 const router = express.Router();
 
-router.get("/getAllRecipies", getAllRecipes);
-router.get("/getRecipesById/:id", getRecipeById);
-router.post("/insertRecipies", insertRecipe);
-router.put("/updateRecipie/:id", updateRecipe);
-router.delete("/deleteRecipie/:id", deleteRecipe);
-router.get("/getRandomRecepie", getRandomRecipe);
-router.get("/getAllRecepiesWithIngridient/:ingredient", getAllRecipesWithIngredient);
+// REST API
+router.get("/recipes", getAllRecipes);
+router.get("/recipes/random", getRandomRecipe);
+router.get("/recipes/ingredient/:name", getRecipesByIngredient);
+router.get("/recipes/:id", getRecipeById);
+router.post("/recipes", insertRecipe);
+router.put("/recipes/:id", updateRecipe);
+router.delete("/recipes/:id", deleteRecipe);
 
 export default router;
